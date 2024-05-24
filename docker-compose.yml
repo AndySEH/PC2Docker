@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  proxy:
+    image: nginx
+    build: 
+      context: ./proxy
+    ports: 
+      - "80:80"
+    depends_on:
+      - login
+      - notes
+
+  login: 
+    image: login
+    build: 
+      context: ./login
+    
+  notes:
+    image: notes
+    build: 
+      context: ./notes
